@@ -1,1 +1,10 @@
-@use './assets/styles/globals.scss';
+@import './assets/styles/abstracts/variables/fonts.scss';
+@import './assets/styles/abstracts/variables/colors.scss';
+@import './assets/styles/abstracts/variables/media-queries.scss';
+@import './assets/styles/abstracts/variables/wrappers.scss';
+@import './assets/styles/abstracts/variables/z-index.scss';
+@import './assets/styles/abstracts/variables/transitions.scss';
+@import './assets/styles/abstracts/placeholders.scss';
+@import './assets/styles/abstracts/functions.scss';
+@import './assets/styles/globals.scss';
+@import './assets/fonts/fonts.scss';
