@@ -4,7 +4,7 @@ type TTimeline = {
   title: string;
   data: {
     heading: string;
-    dates: { [key: string]: string };
+    dates: { [key: string]: string | string[] };
   }[];
 }[];
 
