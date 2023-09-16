@@ -1,0 +1,22 @@
+@mixin font-face(
+  $family,
+  $family-name,
+  $weight-name,
+  $weight-number,
+  $style: 'normal'
+) {
+  @font-face {
+    font-family: $family;
+    font-style: $style;
+    font-display: swap;
+    font-weight: $weight-number;
+    src:
+      url(./source/#{$family-name}-#{$weight-name}.woff2) format('woff2'),
+      url(./source/#{$family-name}-#{$weight-name}.woff) format('woff'),
+      url(./source/#{$family-name}-#{$weight-name}.ttf) format('truetype');
+  }
+}
+
+@include font-face('Bebas Neue', 'BebasNeue', 'Regular', 400);
+@include font-face('PT Sans', 'PtSans', 'Regular', 400);
+@include font-face('PT Sans', 'PtSans', 'Bold', 400);

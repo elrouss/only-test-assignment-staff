@@ -1,0 +1,16 @@
+$size-heading-1: 20rem;
+$size-heading-2: 5.6rem;
+$size-heading-3: 2.5rem;
+$size-text-large: 2rem;
+$size-text-medium: 1.6rem;
+$size-text-small: 1.4rem;
+
+$line-height-heading-1: calc(16rem / $size-heading-1 * 100%);
+$line-height-heading-2: calc(6.72rem / $size-heading-2 * 100%);
+$line-height-heading-3: calc(3rem / $size-heading-3 * 100%);
+$line-height-text-large: calc(3rem / $size-text-large * 100%);
+$line-height-text-medium: calc(1.92rem / $size-text-medium * 100%);
+$line-height-text-small: calc(2.03rem / $size-text-small * 100%);
+
+$letter-spacing-small: -0.4rem;
+$letter-spacing-extra-small: -0.112rem;

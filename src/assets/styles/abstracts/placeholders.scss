@@ -1,0 +1,33 @@
+%heading-size-large {
+  font-size: $size-heading-1;
+  font-weight: 700;
+  line-height: $line-height-heading-1;
+  letter-spacing: $letter-spacing-small;
+}
+
+%heading-size-medium {
+  font-size: $size-heading-2;
+  font-weight: 700;
+  line-height: $line-height-heading-2;
+  letter-spacing: $letter-spacing-extra-small;
+}
+
+%heading-size-small {
+  font-size: $size-heading-3;
+  line-height: $line-height-heading-3;
+}
+
+%text-size-large {
+  font-size: $size-text-large;
+  line-height: $line-height-text-large;
+}
+
+%text-size-medium {
+  font-size: $size-text-medium;
+  line-height: $line-height-text-medium;
+}
+
+%text-size-small {
+  font-size: $size-text-small;
+  line-height: $line-height-text-small;
+}
