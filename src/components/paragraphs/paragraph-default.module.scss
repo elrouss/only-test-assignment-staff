@@ -1,0 +1,7 @@
+@use 'assets/styles/abstracts/variables/fonts' as *;
+@use 'assets/styles/abstracts/variables/colors' as *;
+
+.paragraph {
+  @extend %text-size-large;
+  color: $primary-1;
+}
