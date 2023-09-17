@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './heading-accent.module.scss';
 
 interface IHeadingAccent {
-  level: 1 | 2 | 3;
+  level: 1 | 2 | 3 | 'none';
   text: string;
   color: 'iris' | 'fuchsia';
 }
@@ -29,8 +29,12 @@ export const HeadingAccent = ({ level, text, color }: IHeadingAccent) => {
       heading = <h2 className={selectors}>{text}</h2>;
       break;
 
-    default:
+    case 3:
       heading = <h3 className={selectors}>{text}</h3>;
+      break;
+
+    default:
+      heading = <span className={selectors}>{text}</span>;
   }
 
   return heading;
