@@ -1,0 +1,15 @@
+@use 'assets/styles/abstracts/variables/fonts' as *;
+@use 'assets/styles/abstracts/variables/colors' as *;
+
+.heading {
+  @extend %heading-size-large;
+}
+
+// COLORS
+.iris {
+  color: $brand-1;
+}
+
+.fuchsia {
+  color: $brand-3;
+}
