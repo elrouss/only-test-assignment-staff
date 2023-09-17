@@ -1,0 +1,26 @@
+@use 'assets/styles/abstracts/variables/fonts' as *;
+@use 'assets/styles/abstracts/variables/colors' as *;
+
+// TYPES
+.section {
+  @extend %text-size-large;
+  font-weight: 700;
+}
+
+.paragraph {
+  font-family: 'Bebas Neue';
+  @extend %heading-size-small;
+}
+
+// COLORS
+.darkBlue {
+  color: $primary-1;
+}
+
+.lightBlue {
+  color: $brand-2;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
