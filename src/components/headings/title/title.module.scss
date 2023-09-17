@@ -1,0 +1,7 @@
+@use 'assets/styles/abstracts/variables/fonts' as *;
+@use 'assets/styles/abstracts/variables/colors' as *;
+
+.title {
+  @extend %heading-size-medium;
+  color: $primary-1;
+}
