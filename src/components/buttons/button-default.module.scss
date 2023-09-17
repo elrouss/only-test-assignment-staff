@@ -1,0 +1,82 @@
+@use 'assets/styles/abstracts/variables/fonts' as *;
+@use 'assets/styles/abstracts/variables/colors' as *;
+
+%appearance {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba($color: $primary-1, $alpha: 0.5);
+  background-color: transparent;
+  user-select: none;
+}
+
+%active-label {
+  @extend %appearance;
+  padding: 23px;
+  font-size: $size-text-large;
+  color: $primary-1;
+}
+
+// RADIO
+.radio {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+  width: max-content;
+}
+
+.input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+
+  &:hover {
+    & + .label {
+      @extend %active-label;
+    }
+  }
+
+  &:checked {
+    & + .label {
+      @extend %active-label;
+
+      & + h2 {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.label {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  font-size: 0;
+  background-color: $primary-1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+
+  & + h2 {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+// BUTTON
+.button {
+  @extend %appearance;
+  width: 50px;
+  height: 50px;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}

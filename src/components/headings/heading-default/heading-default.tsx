@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import styles from './heading-paragraph.module.scss';
+import styles from './heading-default.module.scss';
 
 interface IHeadingDefault {
   level: 2 | 3 | 4 | 5 | 6;
