@@ -10,9 +10,9 @@
 
     @for $i from 1 through $item-count {
       &:nth-of-type(#{$i}) {
-        transform: rotate(calc($rot * 1deg))
+        transform: rotate(calc($rot * 1deg - 60deg))
           translate(calc($circle-size / 2))
-          rotate(calc($rot * -1deg));
+          rotate(calc($rot * -1deg + 60deg));
       }
 
       $rot: $rot + $angle;
