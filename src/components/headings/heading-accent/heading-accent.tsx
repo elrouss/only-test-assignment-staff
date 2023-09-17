@@ -1,15 +1,23 @@
+import classNames from 'classnames';
+
 import React from 'react';
 
 import styles from './heading-accent.module.scss';
 
 interface IHeadingAccent {
+  extraClass?: string;
   level: 1 | 2 | 3 | 'none';
   text: string;
   color: 'iris' | 'fuchsia';
 }
 
-export const HeadingAccent = ({ level, text, color }: IHeadingAccent) => {
-  const selectors = `${styles.heading} ${styles[color]}`;
+export const HeadingAccent = ({
+  extraClass,
+  level,
+  text,
+  color,
+}: IHeadingAccent) => {
+  const selectors = classNames(styles.heading, styles[color], extraClass);
 
   let heading:
     | undefined
@@ -34,7 +42,7 @@ export const HeadingAccent = ({ level, text, color }: IHeadingAccent) => {
       break;
 
     default:
-      heading = <span className={selectors}>{text}</span>;
+      heading = <span className={`${selectors} ${styles.span}`}>{text}</span>;
   }
 
   return heading;

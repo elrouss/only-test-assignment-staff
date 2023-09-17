@@ -1,0 +1,10 @@
+@use 'assets/styles/abstracts/variables/fonts' as *;
+@use 'assets/styles/abstracts/variables/colors' as *;
+
+.circle {
+  width: 530px;
+  height: 530px;
+  border: 1px solid rgba($color: $primary-1, $alpha: 0.2);
+  border-radius: 50%;
+  box-sizing: border-box;
+}

@@ -1,5 +1,12 @@
+import classNames from 'classnames';
+
 import styles from './title.module.scss';
 
-export const Title = ({ text }: { text: string }) => (
-  <h1 className={styles.title}>{text}</h1>
+interface ITitleProps {
+  extraClass?: string;
+  text: string;
+}
+
+export const Title = ({ text, extraClass }: ITitleProps) => (
+  <h1 className={classNames(styles.title, extraClass)}>{text}</h1>
 );

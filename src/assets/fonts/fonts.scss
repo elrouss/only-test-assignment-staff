@@ -3,20 +3,27 @@
   $family-name,
   $weight-name,
   $weight-number,
-  $style: 'normal'
+  $style: normal
 ) {
   @font-face {
     font-family: $family;
     font-style: $style;
     font-display: swap;
     font-weight: $weight-number;
-    src:
-      url(./source/#{$family-name}-#{$weight-name}.woff2) format('woff2'),
-      url(./source/#{$family-name}-#{$weight-name}.woff) format('woff'),
-      url(./source/#{$family-name}-#{$weight-name}.ttf) format('truetype');
+
+    @if $family == PT Sans {
+      src:
+        url(./source/#{$family-name}-#{$weight-name}.woff) format('woff'),
+        url(./source/#{$family-name}-#{$weight-name}.ttf) format('truetype');
+    } @else {
+      src:
+        url(./source/#{$family-name}-#{$weight-name}.woff2) format('woff2'),
+        url(./source/#{$family-name}-#{$weight-name}.woff) format('woff'),
+        url(./source/#{$family-name}-#{$weight-name}.ttf) format('truetype');
+    }
   }
 }
 
-@include font-face('Bebas Neue', 'BebasNeue', 'Regular', 400);
-@include font-face('PT Sans', 'PTSans', 'Regular', 400);
-@include font-face('PT Sans', 'PTSans', 'Bold', 700);
+@include font-face(Bebas Neue, BebasNeue, Regular, 400);
+@include font-face(PT Sans, PTSans, Regular, 400);
+@include font-face(PT Sans, PTSans, Bold, 700);

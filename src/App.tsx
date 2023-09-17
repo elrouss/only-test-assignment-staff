@@ -1,5 +1,7 @@
+import { TimelinePage } from 'pages/timeline/timeline';
+
 function App() {
-  return <div className="App">Happy hacking!</div>;
+  return <TimelinePage />;
 }
 
 export default App;

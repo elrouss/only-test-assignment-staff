@@ -5,6 +5,10 @@
   @extend %heading-size-large;
 }
 
+.span {
+  display: inline-block;
+}
+
 // COLORS
 .iris {
   color: $brand-1;
