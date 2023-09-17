@@ -15,7 +15,8 @@ interface IRadio extends React.InputHTMLAttributes<HTMLInputElement> {
       HTMLHeadingElement
     >
   >;
-  number: 1 | 2 | 3 | 4 | 5 | 6;
+  number: number;
+  isChecked: boolean;
 }
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,11 +32,17 @@ export const ButtonDefault = (props: TButtonProps) => {
 
   if (type === 'radio') {
     const id = nanoid();
-    const { name, heading, number } = props;
+    const { name, heading, number, isChecked = false } = props;
 
     return (
       <div className={styles.radio}>
-        <input className={styles.input} id={id} type="radio" name={name} />
+        <input
+          className={styles.input}
+          id={id}
+          type="radio"
+          name={name}
+          defaultChecked={isChecked}
+        />
         <label className={styles.label} htmlFor={id}>
           {number}
         </label>

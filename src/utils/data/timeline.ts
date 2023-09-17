@@ -8,7 +8,7 @@ type TTimeline = {
   }[];
 }[];
 
-const timeline: TTimeline = [
+export const timelineData: TTimeline = [
   {
     title: 'Исторические даты',
     data: [
@@ -76,5 +76,3 @@ const timeline: TTimeline = [
     ],
   },
 ];
-
-export default timeline;

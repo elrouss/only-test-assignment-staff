@@ -7,13 +7,14 @@
   align-items: center;
   border-radius: 50%;
   border: 1px solid rgba($color: $primary-1, $alpha: 0.5);
-  background-color: transparent;
+  background-color: $primary-neutral-100;
   user-select: none;
 }
 
 %active-label {
   @extend %appearance;
-  padding: 23px;
+  padding: 16px 22px;
+  margin: 0;
   font-size: $size-text-large;
   color: $primary-1;
 }
@@ -22,10 +23,10 @@
 .radio {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  column-gap: 20px;
-  width: max-content;
+  width: 56px;
+  height: 56px;
 }
 
 .input {
@@ -45,7 +46,7 @@
     & + .label {
       @extend %active-label;
 
-      & + h2 {
+      & + h3 {
         visibility: visible;
         opacity: 1;
       }
@@ -55,15 +56,16 @@
 
 .label {
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  padding: 3px;
   font-size: 0;
   background-color: $primary-1;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.4s ease-out;
 
-  & + h2 {
+  & + h3 {
+    position: absolute;
+    left: 78px;
     visibility: hidden;
     opacity: 0;
   }

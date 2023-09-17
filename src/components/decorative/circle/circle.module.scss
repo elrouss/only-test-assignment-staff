@@ -1,10 +1,38 @@
 @use 'assets/styles/abstracts/variables/fonts' as *;
 @use 'assets/styles/abstracts/variables/colors' as *;
+@use 'assets/styles/abstracts/mixins' as *;
+
+$s: 530px;
 
 .circle {
-  width: 530px;
-  height: 530px;
+  width: $s;
+  height: $s;
   border: 1px solid rgba($color: $primary-1, $alpha: 0.2);
   border-radius: 50%;
   box-sizing: border-box;
+}
+
+.tabs {
+  position: relative;
+
+  // NUMBERS
+  &_2 {
+    @include on-circle($item-count: 2, $circle-size: $s, $item-size: 56px);
+  }
+
+  &_3 {
+    @include on-circle($item-count: 3, $circle-size: $s, $item-size: 56px);
+  }
+
+  &_4 {
+    @include on-circle($item-count: 4, $circle-size: $s, $item-size: 56px);
+  }
+
+  &_5 {
+    @include on-circle($item-count: 5, $circle-size: $s, $item-size: 56px);
+  }
+
+  &_6 {
+    @include on-circle($item-count: 6, $circle-size: $s, $item-size: 56px);
+  }
 }

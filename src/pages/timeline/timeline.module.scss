@@ -53,11 +53,11 @@ $border: 1px solid
 
 .range {
   position: relative;
-  z-index: $heading;
   display: flex;
   justify-content: space-between;
   max-width: 969px;
   padding: 87px 210px 147px 137px;
+  user-select: none;
 }
 
 .pagination {
