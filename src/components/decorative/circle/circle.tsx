@@ -4,13 +4,19 @@ import React from 'react';
 
 import styles from './circle.module.scss';
 
-interface ICirclePrios {
+interface ICircleProps {
   extraClass?: string;
-  children?: React.ReactNode;
+  children?: React.ReactElement;
   tabsNumber?: number;
+  rotationDegree: number;
 }
 
-export const Circle = ({ extraClass, children, tabsNumber }: ICirclePrios) => {
+export const Circle = ({
+  extraClass,
+  children,
+  tabsNumber,
+  rotationDegree,
+}: ICircleProps) => {
   if (!children) {
     return <div className={classNames(styles.circle, extraClass)} />;
   }
@@ -46,6 +52,7 @@ export const Circle = ({ extraClass, children, tabsNumber }: ICirclePrios) => {
         styles[tabs],
         extraClass
       )}
+      style={{ transform: `rotate(-${rotationDegree}deg)` }}
     >
       {children}
     </div>

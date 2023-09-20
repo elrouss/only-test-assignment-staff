@@ -16,7 +16,7 @@ interface IRadio extends React.InputHTMLAttributes<HTMLInputElement> {
     >
   >;
   number: number;
-  isChecked: boolean;
+  activeTab: number;
 }
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -32,7 +32,7 @@ export const ButtonDefault = (props: TButtonProps) => {
 
   if (type === 'radio') {
     const id = nanoid();
-    const { name, heading, number, isChecked = false } = props;
+    const { name, heading, number, activeTab, onChange } = props;
 
     return (
       <div className={styles.radio}>
@@ -41,7 +41,9 @@ export const ButtonDefault = (props: TButtonProps) => {
           id={id}
           type="radio"
           name={name}
-          defaultChecked={isChecked}
+          value={number}
+          checked={activeTab === number}
+          onChange={onChange}
         />
         <label className={styles.label} htmlFor={id}>
           {number}
@@ -51,7 +53,7 @@ export const ButtonDefault = (props: TButtonProps) => {
     );
   }
 
-  const { direction, isDisabled = false } = props;
+  const { direction, isDisabled = false, onClick } = props;
 
   return (
     <button
@@ -63,6 +65,7 @@ export const ButtonDefault = (props: TButtonProps) => {
           : 'Прокрутить слайдер вперед'
       }
       disabled={isDisabled}
+      onClick={onClick}
     >
       <img
         src={direction === 'left' ? vectorLeft : vectorRight}

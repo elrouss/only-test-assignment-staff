@@ -63,6 +63,7 @@
         "newlines-between": "always-and-inside-groups"
       }
     ],
+    "@typescript-eslint/no-unused-expressions": "off",
     "react/require-default-props": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "import/prefer-default-export": "off",

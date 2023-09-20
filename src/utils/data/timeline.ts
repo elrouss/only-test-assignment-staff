@@ -1,12 +1,5 @@
+import { TTimeline } from 'utils/types/TTimeline';
 import { GUILLEMET_LEFT, GUILLEMET_RIGHT, N_DASH } from 'utils/unicode';
-
-type TTimeline = {
-  title: string;
-  data: {
-    heading: string;
-    dates: { [key: string]: string | string[] };
-  }[];
-}[];
 
 export const timelineData: TTimeline = [
   {
