@@ -10,6 +10,7 @@ import { Circle } from 'components/decorative/circle/circle';
 import { Line } from 'components/decorative/line/line';
 import { HeadingAccent } from 'components/headings/heading-accent/heading-accent';
 import { Title } from 'components/headings/title/title';
+import { Slider } from 'components/slider/slider';
 
 import { ROTATION_DEGREE_STEP_TABS } from 'utils/constants';
 import { timelineData } from 'utils/data/timeline';
@@ -93,6 +94,7 @@ export const TimelinePage = () => {
               />
             </Circle>
           </div>
+          <Slider />
         </div>
       </div>
     </section>
