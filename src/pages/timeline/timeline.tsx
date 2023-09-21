@@ -26,6 +26,8 @@ export const TimelinePage = () => {
   const [history] = timelineData;
   const { title, data } = history;
   const { length } = data;
+  const { dates } = data[tabNums.curr - 1];
+  console.log(dates)
 
   const stepRotation = ROTATION_DEGREE_STEP_TABS[length];
 
@@ -94,7 +96,9 @@ export const TimelinePage = () => {
               />
             </Circle>
           </div>
-          <Slider />
+          <div className={styles.slider}>
+            <Slider facts={dates} />
+          </div>
         </div>
       </div>
     </section>

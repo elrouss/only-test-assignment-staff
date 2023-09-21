@@ -2,18 +2,19 @@
 import React, { useEffect, useRef } from 'react';
 import { register } from 'swiper/element/bundle';
 
-
 interface ISwiperProps {
+  slidesPerView?: number;
   children: React.ReactNode;
 }
 
-export const Swiper = ({ children, ...rest }: ISwiperProps) => {
+export const Swiper = ({ children, slidesPerView, ...rest }: ISwiperProps) => {
   const swiperRef = useRef(null) as any;
 
   useEffect(() => {
     register();
 
     const params = {
+      slidesPerView,
       ...rest,
     };
 
