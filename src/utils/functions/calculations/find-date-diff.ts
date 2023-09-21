@@ -1,3 +1,3 @@
 export const findDateDiff = () => {
-  console.log('test')
-}
+  console.log('test');
+};

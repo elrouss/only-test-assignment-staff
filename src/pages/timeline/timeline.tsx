@@ -20,6 +20,14 @@ export const TimelinePage = () => {
     prev: 1,
     curr: 1, // We always begin with the 1st one
   });
+  const [years, setYears] = useState<null | {
+    prevBegin: number;
+    prevEnd: number;
+
+    currBegin: number;
+    currEnd: number;
+  }>(null);
+
   const [initialRotationDegree, setInitialRotationDegree] = useState(0);
   const [hasAppLoaded, setHasAppLoaded] = useState(false);
 
@@ -27,7 +35,6 @@ export const TimelinePage = () => {
   const { title, data } = history;
   const { length } = data;
   const { dates } = data[tabNums.curr - 1];
-  console.log(dates)
 
   const stepRotation = ROTATION_DEGREE_STEP_TABS[length];
 
@@ -42,11 +49,25 @@ export const TimelinePage = () => {
     setTabNums({ ...tabNums, curr: Number(evt.target.value) });
   };
 
+  const handleYers = () => {
+    const keys = Object.keys(dates).map(Number);
+    const first = keys[0];
+    const last = keys[keys.length - 1];
+
+    setYears({
+      prevBegin: first,
+      prevEnd: last,
+
+      currBegin: first,
+      currEnd: last,
+    });
+  };
+
   useEffect(() => {
     if (!hasAppLoaded) return;
 
     setTabNums({ ...tabNums, prev: tabNums.curr });
-
+    handleYers();
     setInitialRotationDegree(
       tabNums.curr > tabNums.prev
         ? initialRotationDegree + (tabNums.curr - tabNums.prev) * stepRotation
@@ -56,6 +77,7 @@ export const TimelinePage = () => {
   }, [tabNums.curr]);
 
   useEffect(() => {
+    handleYers();
     setHasAppLoaded(true);
   }, []);
 
@@ -67,8 +89,16 @@ export const TimelinePage = () => {
         <div className={styles.innerWrapper}>
           <Title extraClass={styles.title} text={title} />
           <h2 className={styles.range}>
-            <HeadingAccent level="none" text="2015" color="iris" />
-            <HeadingAccent level="none" text="2022" color="fuchsia" />
+            <HeadingAccent
+              level="none"
+              text={years?.currBegin || ''}
+              color="iris"
+            />
+            <HeadingAccent
+              level="none"
+              text={years?.currEnd || ''}
+              color="fuchsia"
+            />
           </h2>
           <div className={styles.pagination}>
             <Counter start={tabNums.curr} end={length} />

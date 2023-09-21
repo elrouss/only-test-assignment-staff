@@ -7,7 +7,7 @@ import styles from './heading-accent.module.scss';
 interface IHeadingAccent {
   extraClass?: string;
   level: 1 | 2 | 3 | 'none';
-  text: string;
+  text: string | number;
   color: 'iris' | 'fuchsia';
 }
 
