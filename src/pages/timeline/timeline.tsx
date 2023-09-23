@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { Tabs } from './components/tabs/tabs';
 import styles from './timeline.module.scss';
@@ -14,27 +14,34 @@ import { Slider } from 'components/slider/slider';
 
 import { ROTATION_DEGREE_STEP_TABS } from 'utils/constants';
 import { timelineData } from 'utils/data/timeline';
+import { countDate } from 'utils/functions/calculations/count-date';
+import { TYearsCounter } from 'utils/types/TTimeline';
 
 export const TimelinePage = () => {
   const [tabNums, setTabNums] = useState({
     prev: 1,
     curr: 1, // We always begin with the 1st one
   });
-  const [years, setYears] = useState<null | {
-    prevBegin: number;
-    prevEnd: number;
-
-    currBegin: number;
-    currEnd: number;
-  }>(null);
+  const [years, setYears] = useState<null | TYearsCounter>(null);
+  const [isCounterStartOn, setIsCounterStartOn] = useState(false);
+  const [isCounterEndOn, setIsCounterEndOn] = useState(false);
+  const counterYearsStartRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
+  const counterYearsEndRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [initialRotationDegree, setInitialRotationDegree] = useState(0);
+
   const [hasAppLoaded, setHasAppLoaded] = useState(false);
 
   const [history] = timelineData;
   const { title, data } = history;
   const { length } = data;
   const { dates } = data[tabNums.curr - 1];
+
+  const keys = Object.keys(dates).map(Number);
+  const first = keys[0];
+  const last = keys[keys.length - 1];
 
   const stepRotation = ROTATION_DEGREE_STEP_TABS[length];
 
@@ -49,25 +56,12 @@ export const TimelinePage = () => {
     setTabNums({ ...tabNums, curr: Number(evt.target.value) });
   };
 
-  const handleYers = () => {
-    const keys = Object.keys(dates).map(Number);
-    const first = keys[0];
-    const last = keys[keys.length - 1];
-
-    setYears({
-      prevBegin: first,
-      prevEnd: last,
-
-      currBegin: first,
-      currEnd: last,
-    });
-  };
-
   useEffect(() => {
-    if (!hasAppLoaded) return;
+    if (!hasAppLoaded || !years?.currStart || !years.currEnd) return;
 
     setTabNums({ ...tabNums, prev: tabNums.curr });
-    handleYers();
+    setYears({ ...years, nextStart: first, nextEnd: last });
+
     setInitialRotationDegree(
       tabNums.curr > tabNums.prev
         ? initialRotationDegree + (tabNums.curr - tabNums.prev) * stepRotation
@@ -77,7 +71,64 @@ export const TimelinePage = () => {
   }, [tabNums.curr]);
 
   useEffect(() => {
-    handleYers();
+    if (!years) return;
+
+    if (years.currStart < years.nextStart && !isCounterStartOn) {
+      counterYearsStartRef.current = countDate(
+        'increment',
+        'currStart',
+        setYears as React.Dispatch<React.SetStateAction<TYearsCounter>>
+      );
+      setIsCounterStartOn(true);
+    }
+
+    if (years.currStart > years.nextStart && !isCounterStartOn) {
+      counterYearsStartRef.current = countDate(
+        'decrement',
+        'currStart',
+        setYears as React.Dispatch<React.SetStateAction<TYearsCounter>>
+      );
+      setIsCounterStartOn(true);
+    }
+
+    if (counterYearsStartRef.current && years.currStart === years.nextStart) {
+      clearInterval(counterYearsStartRef.current);
+      setIsCounterStartOn(false);
+    }
+
+    if (years.currEnd < years.nextEnd && !isCounterEndOn) {
+      counterYearsEndRef.current = countDate(
+        'increment',
+        'currEnd',
+        setYears as React.Dispatch<React.SetStateAction<TYearsCounter>>
+      );
+      setIsCounterEndOn(true);
+    }
+
+    if (years.currEnd > years.nextEnd && !isCounterEndOn) {
+      counterYearsEndRef.current = countDate(
+        'decrement',
+        'currEnd',
+        setYears as React.Dispatch<React.SetStateAction<TYearsCounter>>
+      );
+      setIsCounterEndOn(true);
+    }
+
+    if (counterYearsEndRef.current && years.currEnd === years.nextEnd) {
+      clearInterval(counterYearsEndRef.current);
+      setIsCounterEndOn(false);
+    }
+  }, [years]);
+
+  useEffect(() => {
+    setYears({
+      currStart: first,
+      currEnd: last,
+
+      nextStart: first,
+      nextEnd: last,
+    });
+
     setHasAppLoaded(true);
   }, []);
 
@@ -91,7 +142,7 @@ export const TimelinePage = () => {
           <h2 className={styles.range}>
             <HeadingAccent
               level="none"
-              text={years?.currBegin || ''}
+              text={years?.currStart || ''}
               color="iris"
             />
             <HeadingAccent

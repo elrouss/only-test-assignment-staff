@@ -7,3 +7,5 @@ export const ROTATION_DEGREE_STEP_TABS: { [key: number]: number } =
     5: 72,
     6: 60,
   });
+
+export const COUNTER_TIMER = 40; // ms

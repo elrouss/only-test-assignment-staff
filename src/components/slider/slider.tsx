@@ -10,9 +10,9 @@ interface ISliderProps {
 }
 
 export const Slider = ({ facts }: ISliderProps) => {
-  const dates = Object.keys(facts);
+  const years = Object.keys(facts);
 
-  const slides = dates.map((date) => (
+  const slides = years.map((date) => (
     <SwiperSlide key={nanoid()}>
       <CardFact
         heading={
@@ -27,6 +27,8 @@ export const Slider = ({ facts }: ISliderProps) => {
       />
     </SwiperSlide>
   ));
+
+  // console.log(slides)
 
   return <Swiper slidesPerView={3}>{slides}</Swiper>;
 };

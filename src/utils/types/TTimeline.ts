@@ -7,3 +7,11 @@ export type TTimeline = {
   title: string;
   data: TTimelineData[];
 }[];
+
+export type TYearsCounter = {
+  currStart: number;
+  currEnd: number;
+
+  nextStart: number;
+  nextEnd: number;
+};
