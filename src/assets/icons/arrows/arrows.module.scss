@@ -1,0 +1,9 @@
+@use 'assets/styles/abstracts/variables/colors' as *;
+
+.gray path {
+  stroke: $primary-1;
+}
+
+.blue path {
+  stroke: $brand-2;
+}

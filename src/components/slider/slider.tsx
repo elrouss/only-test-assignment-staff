@@ -28,7 +28,5 @@ export const Slider = ({ facts }: ISliderProps) => {
     </SwiperSlide>
   ));
 
-  // console.log(slides)
-
   return <Swiper slidesPerView={3}>{slides}</Swiper>;
 };

@@ -3,8 +3,8 @@ import React from 'react';
 
 import styles from './button-default.module.scss';
 
-import vectorLeft from 'assets/icons/vector-left.svg';
-import vectorRight from 'assets/icons/vector-right.svg';
+import { ArrowLeft } from 'assets/icons/arrows/arrow-left';
+import { ArrowRight } from 'assets/icons/arrows/arrow-right';
 
 interface IRadio extends React.InputHTMLAttributes<HTMLInputElement> {
   type: 'radio';
@@ -67,10 +67,11 @@ export const ButtonDefault = (props: TButtonProps) => {
       disabled={isDisabled}
       onClick={onClick}
     >
-      <img
-        src={direction === 'left' ? vectorLeft : vectorRight}
-        alt={direction === 'left' ? 'Стрелка влево' : 'Стрелка вправо'}
-      />
+      {direction === 'left' ? (
+        <ArrowLeft color="gray" />
+      ) : (
+        <ArrowRight color="gray" />
+      )}
     </button>
   );
 };

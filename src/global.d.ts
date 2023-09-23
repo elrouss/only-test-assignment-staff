@@ -4,7 +4,6 @@ declare namespace JSX {
       React.HTMLAttributes<HTMLElement>,
       HTMLElement
     > & {
-      navigation?: string;
       init: string;
     };
     'swiper-slide': React.DetailedHTMLProps<

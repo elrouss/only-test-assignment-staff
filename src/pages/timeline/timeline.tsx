@@ -177,9 +177,9 @@ export const TimelinePage = () => {
               />
             </Circle>
           </div>
-          <div className={styles.slider}>
-            <Slider facts={dates} />
-          </div>
+        </div>
+        <div className={styles.slider}>
+          <Slider facts={dates} />
         </div>
       </div>
     </section>
