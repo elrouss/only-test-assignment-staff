@@ -5,6 +5,8 @@ import { HeadingDefault } from 'components/headings/heading-default/heading-defa
 import { ParagraphDefault } from 'components/paragraphs/paragraph-default';
 import { Swiper, SwiperSlide } from 'components/swiper/swiper';
 
+import { DEVICE_DIMENSIONS } from 'utils/constants';
+
 interface ISliderProps {
   facts: { [key: string]: string | string[] };
 }
@@ -28,5 +30,23 @@ export const Slider = ({ facts }: ISliderProps) => {
     </SwiperSlide>
   ));
 
-  return <Swiper slidesPerView={3}>{slides}</Swiper>;
+  return (
+    <Swiper
+      breakpoints={{
+        [DEVICE_DIMENSIONS.MOBILE_EXTRA_SMALL]: {
+          slidesPerView: 'auto',
+          spaceBetween: 10,
+        },
+        [DEVICE_DIMENSIONS.TABLET_ALBUM_ORIENTATION + 1]: {
+          slidesPerView: 2,
+        },
+        [DEVICE_DIMENSIONS.DESKTOP_SMALL]: {
+          slidesPerView: 3,
+          spaceBetween: 15,
+        },
+      }}
+    >
+      {slides}
+    </Swiper>
+  );
 };

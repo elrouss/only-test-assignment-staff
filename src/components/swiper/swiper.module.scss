@@ -1,5 +1,17 @@
+@use 'assets/styles/abstracts/variables/media-queries' as *;
+
 .empty {
   width: 40px;
   height: 100%;
   cursor: default;
+
+  @media screen and (max-width: $tablet-album-orientation) {
+    display: none;
+  }
+}
+
+.button {
+  @media screen and (max-width: $tablet-album-orientation) {
+    display: none !important;
+  }
 }

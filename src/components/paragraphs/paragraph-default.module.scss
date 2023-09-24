@@ -1,7 +1,24 @@
 @use 'assets/styles/abstracts/variables/fonts' as *;
 @use 'assets/styles/abstracts/variables/colors' as *;
+@use 'assets/styles/abstracts/variables/media-queries' as *;
+@use 'assets/styles/abstracts/functions' as *;
 
 .paragraph {
   @extend %text-size-large;
   color: $primary-1;
+
+  @media screen and (max-width: calc($desktop-extra-large - 1px)) {
+    font-size: calc-fluid-element(
+      calc($size-text-small * 10),
+      calc($size-text-large * 10),
+      $mobile-extra-small,
+      $desktop-extra-large
+    );
+    line-height: calc-fluid-element(
+      20.3,
+      30,
+      $mobile-extra-small,
+      $desktop-extra-large
+    );
+  }
 }

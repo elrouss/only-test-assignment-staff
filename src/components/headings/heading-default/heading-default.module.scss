@@ -1,5 +1,7 @@
 @use 'assets/styles/abstracts/variables/fonts' as *;
 @use 'assets/styles/abstracts/variables/colors' as *;
+@use 'assets/styles/abstracts/variables/media-queries' as *;
+@use 'assets/styles/abstracts/functions' as *;
 
 // TYPES
 .section {
@@ -10,6 +12,15 @@
 .paragraph {
   font-family: 'Bebas Neue';
   @extend %heading-size-small;
+
+  @media screen and (max-width: calc($desktop-extra-large - 1px)) {
+    font-size: calc-fluid-element(
+      calc($size-text-medium * 10),
+      calc($size-heading-3 * 10),
+      $mobile-extra-small,
+      $desktop-extra-large
+    );
+  }
 }
 
 // COLORS

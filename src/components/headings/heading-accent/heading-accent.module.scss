@@ -1,8 +1,24 @@
 @use 'assets/styles/abstracts/variables/fonts' as *;
 @use 'assets/styles/abstracts/variables/colors' as *;
+@use 'assets/styles/abstracts/variables/media-queries' as *;
+@use 'assets/styles/abstracts/functions' as *;
 
 .heading {
   @extend %heading-size-large;
+
+  @media screen and (max-width: calc($desktop-extra-large - 1px)) {
+    font-size: calc-fluid-element(
+      calc($size-heading-2 * 10),
+      calc($size-heading-1 * 10),
+      $mobile-extra-small,
+      $desktop-extra-large
+    );
+  }
+
+  @media screen and (max-width: $tablet-album-orientation) {
+    line-height: normal;
+    letter-spacing: $letter-spacing-extra-small;
+  }
 }
 
 .span {
@@ -12,8 +28,16 @@
 // COLORS
 .iris {
   color: $brand-1;
+
+  @media screen and (max-width: $tablet-album-orientation) {
+    color: $brand-2;
+  }
 }
 
 .fuchsia {
   color: $brand-3;
+
+  @media screen and (max-width: $tablet-album-orientation) {
+    color: $brand-4;
+  }
 }

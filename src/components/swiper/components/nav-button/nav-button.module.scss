@@ -1,4 +1,5 @@
 @use 'assets/styles/abstracts/variables/colors' as *;
+@use 'assets/styles/abstracts/variables/media-queries' as *;
 
 .button {
   display: inline-flex;

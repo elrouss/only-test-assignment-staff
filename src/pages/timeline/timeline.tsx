@@ -156,6 +156,19 @@ export const TimelinePage = () => {
               color="fuchsia"
             />
           </h2>
+          <div className={styles.circle}>
+            <Circle rotationDegree={initialRotationDegree}>
+              <Tabs
+                data={data}
+                activeTabNumber={tabNums.curr}
+                position={tabsPosition}
+                additionalRotationDegree={initialRotationDegree}
+                onChange={handleCheckedButton}
+              />
+            </Circle>
+          </div>
+        </div>
+        <div className={styles.sliderWrapper}>
           <div className={styles.pagination}>
             <Counter start={tabNums.curr} end={length} />
             <div className={styles.buttons}>
@@ -173,20 +186,9 @@ export const TimelinePage = () => {
               />
             </div>
           </div>
-          <div className={styles.circle}>
-            <Circle rotationDegree={initialRotationDegree}>
-              <Tabs
-                data={data}
-                activeTabNumber={tabNums.curr}
-                position={tabsPosition}
-                additionalRotationDegree={initialRotationDegree}
-                onChange={handleCheckedButton}
-              />
-            </Circle>
+          <div className={styles.slider}>
+            <Slider facts={dates} />
           </div>
-        </div>
-        <div className={styles.slider}>
-          <Slider facts={dates} />
         </div>
       </div>
     </section>

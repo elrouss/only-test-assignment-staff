@@ -1,7 +1,19 @@
+@use 'assets/styles/abstracts/variables/media-queries' as *;
+@use 'assets/styles/abstracts/functions' as *;
+
 .wrapper {
   max-width: 360px;
 
   > *:not(:first-child) {
     margin-top: 13px;
+  }
+
+  @media screen and (max-width: calc($desktop-extra-large - 1px)) {
+    max-width: calc-fluid-element(
+      220,
+      360,
+      $mobile-extra-small,
+      $desktop-extra-large
+    );
   }
 }

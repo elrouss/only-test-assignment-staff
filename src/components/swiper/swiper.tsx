@@ -7,7 +7,11 @@ import styles from './swiper.module.scss';
 import { NavButton } from 'components/swiper/components/nav-button/nav-button';
 
 interface ISwiperProps {
-  slidesPerView?: number;
+  slidesPerView?: number | 'auto';
+  spaceBetween?: number;
+  breakpoints?: {
+    [key: number]: { slidesPerView?: number | 'auto'; spaceBetween?: number };
+  };
   children: React.ReactNode;
 }
 
@@ -22,6 +26,8 @@ export const Swiper = ({ children, ...rest }: ISwiperProps) => {
 
   useEffect(() => {
     const params = {
+      breakpoints: {},
+
       injectStyles: [
         `
         :host {
@@ -38,11 +44,13 @@ export const Swiper = ({ children, ...rest }: ISwiperProps) => {
 
     swiperRef.current.initialize();
 
-    setSlidersNum(
-      Math.floor(
-        swiperRef.current.swiper.slides.length / (rest.slidesPerView || 1) + 1
-      )
-    );
+    if (typeof rest.slidesPerView === 'number') {
+      setSlidersNum(
+        Math.floor(
+          swiperRef.current.swiper.slides.length / (rest.slidesPerView || 1) + 1
+        )
+      );
+    }
   }, [children]);
 
   const updateIndex = useCallback(
@@ -72,6 +80,7 @@ export const Swiper = ({ children, ...rest }: ISwiperProps) => {
         emptyBlock
       ) : (
         <NavButton
+          extraClass={styles.button}
           direction="previous"
           onClick={() => swiperRef.current.swiper.slidePrev()}
         />
@@ -83,6 +92,7 @@ export const Swiper = ({ children, ...rest }: ISwiperProps) => {
         emptyBlock
       ) : (
         <NavButton
+          extraClass={styles.button}
           direction="next"
           onClick={() => swiperRef.current.swiper.slideNext()}
         />

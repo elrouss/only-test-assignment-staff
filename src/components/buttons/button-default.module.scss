@@ -1,5 +1,6 @@
 @use 'assets/styles/abstracts/variables/fonts' as *;
 @use 'assets/styles/abstracts/variables/colors' as *;
+@use 'assets/styles/abstracts/variables/media-queries' as *;
 @use 'assets/styles/keyframes' as *;
 
 %appearance {
@@ -82,5 +83,10 @@
   &:disabled {
     opacity: 0.5;
     cursor: default;
+  }
+
+  @media screen and (max-width: $tablet-album-orientation) {
+    width: 25px;
+    height: 25px;
   }
 }

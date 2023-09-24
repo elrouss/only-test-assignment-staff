@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import React from 'react';
 
 import styles from './nav-button.module.scss';
@@ -7,12 +9,17 @@ import { ArrowRight } from 'assets/icons/arrows/arrow-right';
 
 interface INavButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extraClass?: string;
   direction: 'previous' | 'next';
 }
 
-export const NavButton = ({ direction, onClick }: INavButtonProps) => (
+export const NavButton = ({
+  extraClass,
+  direction,
+  onClick,
+}: INavButtonProps) => (
   <button
-    className={styles.button}
+    className={classNames(styles.button, extraClass)}
     type="button"
     aria-label={`Прокрутить слайдер ${
       direction === 'previous' ? 'назад' : 'вперед'
