@@ -119,30 +119,7 @@ $border: 1px solid
   display: flex;
   justify-content: space-between;
   max-width: 969px;
-  padding: 87px 174px 147px 137px;
   user-select: none;
-
-  @media screen and (max-width: calc($desktop-extra-large - 1px)) {
-    padding-right: calc-fluid-element(
-      9,
-      174,
-      $tablet-album-orientation,
-      $desktop-extra-large
-    );
-    padding-left: calc-fluid-element(
-      0,
-      137,
-      $tablet-album-orientation,
-      $desktop-extra-large
-    );
-  }
-
-  @media screen and (max-width: $tablet-album-orientation) {
-    padding-top: 54px;
-    padding-right: 9px;
-    padding-bottom: 60px;
-    border-bottom: 1px solid $secondary-1;
-  }
 }
 
 .buttons {
@@ -246,5 +223,43 @@ $border: 1px solid
         width: auto;
       }
     }
+  }
+}
+
+.headings {
+  padding: 87px 174px 147px 137px;
+
+  @media screen and (max-width: calc($desktop-extra-large - 1px)) {
+    padding-right: calc-fluid-element(
+      9,
+      174,
+      $tablet-album-orientation,
+      $desktop-extra-large
+    );
+    padding-left: calc-fluid-element(
+      0,
+      137,
+      $tablet-album-orientation,
+      $desktop-extra-large
+    );
+  }
+
+  @media screen and (max-width: $tablet-album-orientation) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 140px;
+    padding-top: 43px;
+    padding-right: 9px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid $secondary-1;
+  }
+}
+
+.sectionHeading {
+  display: none;
+
+  @media screen and (max-width: $tablet-album-orientation) {
+    display: block;
   }
 }

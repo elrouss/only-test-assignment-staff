@@ -7,6 +7,15 @@
 .section {
   @extend %text-size-large;
   font-weight: 700;
+
+  @media screen and (max-width: calc($tablet-album-orientation - 1px)) {
+    font-size: calc-fluid-element(
+      calc($size-text-medium * 10),
+      calc($size-text-large * 10),
+      $mobile-extra-small,
+      $tablet-album-orientation
+    );
+  }
 }
 
 .paragraph {

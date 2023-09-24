@@ -9,6 +9,7 @@ import { ButtonDefault } from 'components/buttons/button-default';
 import { Circle } from 'components/decorative/circle/circle';
 import { Line } from 'components/decorative/line/line';
 import { HeadingAccent } from 'components/headings/heading-accent/heading-accent';
+import { HeadingDefault } from 'components/headings/heading-default/heading-default';
 import { Title } from 'components/headings/title/title';
 import { Counter } from 'components/pagination/counter/counter';
 import { Slider } from 'components/slider/slider';
@@ -42,6 +43,7 @@ export const TimelinePage = () => {
   const { title, data } = history;
   const { length } = data;
   const { dates } = data[tabNums.curr - 1];
+  console.log(data);
 
   const keys = Object.keys(dates).map(Number);
   const first = keys[0];
@@ -145,18 +147,27 @@ export const TimelinePage = () => {
         <Line extraClass={styles.lineHorizontal} direction="horizontal" />
         <div className={styles.innerWrapper}>
           <Title extraClass={styles.title} text={title} />
-          <h2 className={styles.range}>
-            <HeadingAccent
-              level="none"
-              text={years?.currStart || ''}
-              color="iris"
+          <div className={styles.headings}>
+            <h2 className={styles.range}>
+              <HeadingAccent
+                level="none"
+                text={years?.currStart || ''}
+                color="iris"
+              />
+              <HeadingAccent
+                level="none"
+                text={years?.currEnd || ''}
+                color="fuchsia"
+              />
+            </h2>
+            <HeadingDefault
+              extraClass={styles.sectionHeading}
+              level={3}
+              type="section"
+              color="darkBlue"
+              text={data[tabNums.curr - 1].heading}
             />
-            <HeadingAccent
-              level="none"
-              text={years?.currEnd || ''}
-              color="fuchsia"
-            />
-          </h2>
+          </div>
           <div className={styles.circle}>
             <Circle rotationDegree={initialRotationDegree}>
               <Tabs

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import styles from './heading-default.module.scss';
 
 interface IHeadingDefault {
+  extraClass?: string;
   level: 2 | 3 | 4 | 5 | 6;
   type: 'section' | 'paragraph';
   text: string;
@@ -11,13 +12,14 @@ interface IHeadingDefault {
 }
 
 export const HeadingDefault = ({
+  extraClass,
   level,
   type,
   text,
   color,
   hasUppercase = false,
 }: IHeadingDefault) => {
-  const selectors = classNames(styles[type], styles[color], {
+  const selectors = classNames(styles[type], styles[color], extraClass, {
     [styles.uppercase]: hasUppercase,
   });
 
