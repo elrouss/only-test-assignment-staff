@@ -1,5 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+} from 'react';
 
 import { Pagination } from './components/pagination/pagination';
 import { Tabs } from './components/tabs/tabs';
@@ -57,11 +63,17 @@ export const TimelinePage = () => {
     });
   };
 
-  const tabsPosition = setElementsPosition(length, circleDiameter);
+  const tabsPosition = useMemo(
+    () => setElementsPosition(length, circleDiameter),
+    []
+  );
 
-  const handleCheckedButton = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    setTabNums({ ...tabNums, curr: Number(evt.target.value) });
-  };
+  const handleCheckedButton = useCallback(
+    (evt: React.ChangeEvent<HTMLInputElement>) => {
+      setTabNums({ ...tabNums, curr: Number(evt.target.value) });
+    },
+    [tabNums]
+  );
 
   useEffect(() => {
     if (!hasAppLoaded || !years?.currStart || !years.currEnd) return;

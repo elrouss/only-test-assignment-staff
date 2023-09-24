@@ -1,5 +1,7 @@
 import { nanoid } from 'nanoid';
 
+import { memo } from 'react';
+
 import styles from './slider.module.scss';
 
 import { CardFact } from 'components/cards/card-fact/card-fact';
@@ -13,7 +15,7 @@ interface ISliderProps {
   facts: { [key: string]: string | string[] };
 }
 
-export const Slider = ({ facts }: ISliderProps) => {
+export const Slider = memo(({ facts }: ISliderProps) => {
   const years = Object.keys(facts);
 
   const slides = years.map((date) => (
@@ -56,4 +58,4 @@ export const Slider = ({ facts }: ISliderProps) => {
       {slides}
     </Swiper>
   );
-};
+});
