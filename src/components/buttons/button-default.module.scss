@@ -1,5 +1,6 @@
 @use 'assets/styles/abstracts/variables/fonts' as *;
 @use 'assets/styles/abstracts/variables/colors' as *;
+@use 'assets/styles/keyframes' as *;
 
 %appearance {
   display: inline-flex;
@@ -49,6 +50,7 @@
       & + h3 {
         visibility: visible;
         opacity: 1;
+        animation: makeVisible 0.4s ease-out;
       }
     }
   }
