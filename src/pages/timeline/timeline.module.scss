@@ -214,13 +214,23 @@ $border: 1px solid
     }
 
     @media screen and (max-width: $tablet-album-orientation) {
-      width: auto;
+      width: calc-fluid-element(
+        300,
+        871.6,
+        $mobile-extra-small,
+        $tablet-album-orientation
+      );
       min-height: 190px;
     }
 
     swiper-slide {
       @media screen and (max-width: $tablet-album-orientation) {
-        width: auto;
+        width: calc-fluid-element(
+          179.2,
+          281.59,
+          $mobile-extra-small,
+          $tablet-album-orientation
+        ); //179.2 281.59
       }
     }
   }
