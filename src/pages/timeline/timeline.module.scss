@@ -96,6 +96,15 @@ $border: 1px solid
   left: 0;
   transform: translateY(-38.2%);
 
+  @media screen and (max-width: calc($desktop-extra-large - 1px)) {
+    top: calc-fluid-element(
+      367.04,
+      480.17,
+      $tablet-album-orientation,
+      $desktop-extra-large
+    );
+  }
+
   @media screen and (max-width: $tablet-album-orientation) {
     display: none;
   }
@@ -133,7 +142,7 @@ $border: 1px solid
 
 .circle {
   position: absolute;
-  top: 7.8%;
+  top: 9.1%;
   left: 50%;
   transform: translateX(-50%);
 
@@ -147,7 +156,7 @@ $border: 1px solid
 
   @media screen and (max-width: calc($desktop-extra-large - 1px)) {
     margin-top: calc-fluid-element(
-      105,
+      24,
       0,
       $tablet-album-orientation,
       $desktop-extra-large
@@ -194,7 +203,7 @@ $border: 1px solid
   user-select: none;
 
   @media screen and (max-width: calc($desktop-large - 1px)) {
-    column-gap: calc($buttons-gap / 2);
+    column-gap: 0;
   }
 
   @media screen and (max-width: $tablet-album-orientation) {
@@ -213,6 +222,11 @@ $border: 1px solid
       );
     }
 
+    @media screen and (max-width: calc($desktop-large - 1px)) {
+      margin-left: 24px;
+      margin-right: 12px;
+    }
+
     @media screen and (max-width: $tablet-album-orientation) {
       width: calc-fluid-element(
         300,
@@ -221,6 +235,8 @@ $border: 1px solid
         $tablet-album-orientation
       );
       min-height: 190px;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     swiper-slide {
@@ -240,6 +256,12 @@ $border: 1px solid
   padding: 87px 174px 147px 137px;
 
   @media screen and (max-width: calc($desktop-extra-large - 1px)) {
+    padding-top: calc-fluid-element(
+      173,
+      87,
+      $tablet-album-orientation,
+      $desktop-extra-large
+    );
     padding-right: calc-fluid-element(
       9,
       174,
