@@ -33,6 +33,7 @@
       "typescript": {}
     }
   },
+  "ignorePatterns": ["build", "node_modules"],
   "rules": {
     "react/jsx-filename-extension": [
       1,

@@ -178,8 +178,15 @@ $border: 1px solid
   }
 
   @media screen and (max-width: $tablet-album-orientation) {
-    row-gap: 56px;
     margin-top: 20px;
+  }
+}
+
+.sliderInteraction {
+  @media screen and (max-width: $tablet-album-orientation) {
+    display: flex;
+    align-items: center;
+    column-gap: 39px;
   }
 }
 
@@ -231,6 +238,7 @@ $border: 1px solid
 
     @media screen and (max-width: $tablet-album-orientation) {
       width: auto;
+      min-height: 190px;
     }
 
     swiper-slide {

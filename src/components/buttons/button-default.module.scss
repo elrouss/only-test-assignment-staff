@@ -1,6 +1,7 @@
 @use 'assets/styles/abstracts/variables/fonts' as *;
 @use 'assets/styles/abstracts/variables/colors' as *;
 @use 'assets/styles/abstracts/variables/media-queries' as *;
+@use 'assets/styles/abstracts/variables/z-index' as *;
 @use 'assets/styles/keyframes' as *;
 
 %appearance {
@@ -33,7 +34,7 @@
 
 .input {
   position: absolute;
-  z-index: -1;
+  z-index: $not-visible-0;
   opacity: 0;
   width: 1px;
   height: 1px;
@@ -88,5 +89,10 @@
   @media screen and (max-width: $tablet-album-orientation) {
     width: 25px;
     height: 25px;
+
+    svg {
+      width: 5.12px;
+      height: 7.25px;
+    }
   }
 }

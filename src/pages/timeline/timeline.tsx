@@ -1,15 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from 'react';
 
+import { Pagination } from './components/pagination/pagination';
 import { Tabs } from './components/tabs/tabs';
 import styles from './timeline.module.scss';
 
 import { ButtonDefault } from 'components/buttons/button-default';
-import { Counter } from 'components/counter/counter';
 import { Circle } from 'components/decorative/circle/circle';
 import { Line } from 'components/decorative/line/line';
 import { HeadingAccent } from 'components/headings/heading-accent/heading-accent';
 import { Title } from 'components/headings/title/title';
+import { Counter } from 'components/pagination/counter/counter';
 import { Slider } from 'components/slider/slider';
 
 import { ROTATION_DEGREE_STEP_TABS } from 'utils/constants';
@@ -169,22 +170,29 @@ export const TimelinePage = () => {
           </div>
         </div>
         <div className={styles.sliderWrapper}>
-          <div className={styles.pagination}>
-            <Counter start={tabNums.curr} end={length} />
-            <div className={styles.buttons}>
-              <ButtonDefault
-                type="button"
-                direction="left"
-                isDisabled={tabNums.curr === 1}
-                onClick={() => rotateTabs('left')}
-              />
-              <ButtonDefault
-                type="button"
-                direction="right"
-                isDisabled={tabNums.curr === length}
-                onClick={() => rotateTabs('right')}
-              />
+          <div className={styles.sliderInteraction}>
+            <div className={styles.pagination}>
+              <Counter start={tabNums.curr} end={length} />
+              <div className={styles.buttons}>
+                <ButtonDefault
+                  type="button"
+                  direction="left"
+                  isDisabled={tabNums.curr === 1}
+                  onClick={() => rotateTabs('left')}
+                />
+                <ButtonDefault
+                  type="button"
+                  direction="right"
+                  isDisabled={tabNums.curr === length}
+                  onClick={() => rotateTabs('right')}
+                />
+              </div>
             </div>
+            <Pagination
+              totalNumTabs={length}
+              activeTabNum={tabNums.curr}
+              onChange={handleCheckedButton}
+            />
           </div>
           <div className={styles.slider}>
             <Slider facts={dates} />
