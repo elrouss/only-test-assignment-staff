@@ -17,8 +17,10 @@ interface ISwiperProps {
 
 export const Swiper = ({ children, ...rest }: ISwiperProps) => {
   const swiperRef = useRef(null) as any;
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [slidersNum, setSlidersNum] = useState(0);
+  const [slideConfig, setSlideConfig] = useState({
+    isBeginning: true,
+    isEnd: false,
+  });
 
   useEffect(() => {
     register();
@@ -26,8 +28,6 @@ export const Swiper = ({ children, ...rest }: ISwiperProps) => {
 
   useEffect(() => {
     const params = {
-      breakpoints: {},
-
       injectStyles: [
         `
         :host {
@@ -43,40 +43,32 @@ export const Swiper = ({ children, ...rest }: ISwiperProps) => {
     Object.assign(swiperRef.current, params);
 
     swiperRef.current.initialize();
-
-    if (typeof rest.slidesPerView === 'number') {
-      setSlidersNum(
-        Math.floor(
-          swiperRef.current.swiper.slides.length / (rest.slidesPerView || 1) + 1
-        )
-      );
-    }
   }, [children]);
 
-  const updateIndex = useCallback(
-    () => setCurrentSlide(swiperRef.current.swiper.realIndex),
+  const checkPosition = useCallback(
+    () =>
+      setSlideConfig({
+        isBeginning: swiperRef.current.swiper.isBeginning,
+        isEnd: swiperRef.current.swiper.isEnd,
+      }),
     []
   );
 
   useEffect(() => {
     const swiperInstance = swiperRef.current.swiper;
 
-    if (swiperInstance) {
-      swiperInstance.on('slideChange', updateIndex);
-    }
+    swiperInstance.on('slideChange', checkPosition);
 
     return () => {
-      if (swiperInstance) {
-        swiperInstance.off('slideChange', updateIndex);
-      }
+      swiperInstance.off('slideChange', checkPosition);
     };
-  }, [updateIndex]);
+  }, []);
 
   const emptyBlock = <div className={styles.empty} />;
 
   return (
     <>
-      {currentSlide === 0 ? (
+      {slideConfig.isBeginning ? (
         emptyBlock
       ) : (
         <NavButton
@@ -88,7 +80,7 @@ export const Swiper = ({ children, ...rest }: ISwiperProps) => {
       <swiper-container init="false" ref={swiperRef}>
         {children}
       </swiper-container>
-      {currentSlide === slidersNum ? (
+      {slideConfig.isEnd ? (
         emptyBlock
       ) : (
         <NavButton

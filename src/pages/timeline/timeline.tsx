@@ -43,7 +43,6 @@ export const TimelinePage = () => {
   const { title, data } = history;
   const { length } = data;
   const { dates } = data[tabNums.curr - 1];
-  console.log(data);
 
   const keys = Object.keys(dates).map(Number);
   const first = keys[0];
