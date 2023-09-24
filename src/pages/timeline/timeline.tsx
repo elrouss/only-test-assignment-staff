@@ -15,7 +15,10 @@ import { Slider } from 'components/slider/slider';
 import { ROTATION_DEGREE_STEP_TABS } from 'utils/constants';
 import { timelineData } from 'utils/data/timeline';
 import { countDate } from 'utils/functions/calculations/count-date';
+import { setElementsPosition } from 'utils/functions/calculations/set-elements-position';
 import { TYearsCounter } from 'utils/types/TTimeline';
+
+const circleDiameter = 530;
 
 export const TimelinePage = () => {
   const [tabNums, setTabNums] = useState({
@@ -51,6 +54,8 @@ export const TimelinePage = () => {
       curr: direction === 'left' ? tabNums.curr - 1 : tabNums.curr + 1,
     });
   };
+
+  const tabsPosition = setElementsPosition(length, circleDiameter);
 
   const handleCheckedButton = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setTabNums({ ...tabNums, curr: Number(evt.target.value) });
@@ -169,10 +174,12 @@ export const TimelinePage = () => {
             </div>
           </div>
           <div className={styles.circle}>
-            <Circle tabsNumber={length} rotationDegree={initialRotationDegree}>
+            <Circle rotationDegree={initialRotationDegree}>
               <Tabs
                 data={data}
                 activeTabNumber={tabNums.curr}
+                position={tabsPosition}
+                additionalRotationDegree={initialRotationDegree}
                 onChange={handleCheckedButton}
               />
             </Circle>

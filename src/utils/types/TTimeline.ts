@@ -15,3 +15,9 @@ export type TYearsCounter = {
   nextStart: number;
   nextEnd: number;
 };
+
+export type TElementsPosition = {
+  itemRotation: number;
+  textRotation: number;
+  translation: number;
+}[];

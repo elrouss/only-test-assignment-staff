@@ -5,18 +5,35 @@ import React from 'react';
 import { ButtonDefault } from 'components/buttons/button-default';
 import { HeadingDefault } from 'components/headings/heading-default/heading-default';
 
-import { TTimelineData } from 'utils/types/TTimeline';
+import { TTimelineData, TElementsPosition } from 'utils/types/TTimeline';
 
 interface ITabsProps {
   data: TTimelineData[];
   activeTabNumber: number;
+  position: TElementsPosition;
+  additionalRotationDegree: number;
   onChange: (evt: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Tabs = ({ data, activeTabNumber, onChange }: ITabsProps) => (
+export const Tabs = ({
+  data,
+  activeTabNumber,
+  position,
+  additionalRotationDegree,
+  onChange,
+}: ITabsProps) => (
   <>
     {data.map(({ heading }, i) => (
-      <div key={nanoid()}>
+      <div
+        key={nanoid()}
+        style={{
+          transform: `rotate(${position[i].itemRotation}deg) translate(${
+            position[i].translation
+          }px) rotate(${
+            position[i].textRotation + additionalRotationDegree
+          }deg)`,
+        }}
+      >
         <ButtonDefault
           type="radio"
           name="history"

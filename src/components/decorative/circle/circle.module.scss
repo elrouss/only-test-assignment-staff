@@ -17,44 +17,12 @@ $btn-size: 56px;
 .tabs {
   position: relative;
 
-  // NUMBERS
-  &_2 {
-    @include on-circle(
-      $item-count: 2,
-      $circle-size: $diameter,
-      $item-size: $btn-size
-    );
-  }
+  > * {
+    $item-size: 56px;
 
-  &_3 {
-    @include on-circle(
-      $item-count: 3,
-      $circle-size: $diameter,
-      $item-size: $btn-size
-    );
-  }
-
-  &_4 {
-    @include on-circle(
-      $item-count: 4,
-      $circle-size: $diameter,
-      $item-size: $btn-size
-    );
-  }
-
-  &_5 {
-    @include on-circle(
-      $item-count: 5,
-      $circle-size: $diameter,
-      $item-size: $btn-size
-    );
-  }
-
-  &_6 {
-    @include on-circle(
-      $item-count: 6,
-      $circle-size: $diameter,
-      $item-size: $btn-size
-    );
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -(calc($item-size / 2));
   }
 }
