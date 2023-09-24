@@ -5,6 +5,7 @@ export const DEVICE_DIMENSIONS: { [key: string]: number } = Object.freeze({
   DESKTOP_MEDIUM: 1440,
   DESKTOP_SMALL: 1366,
   TABLET_ALBUM_ORIENTATION: 1024,
+  MOBILE_EXTRA_LARGE: 428,
   MOBILE_EXTRA_SMALL: 320,
 });
 

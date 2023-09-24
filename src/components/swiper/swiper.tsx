@@ -10,7 +10,11 @@ interface ISwiperProps {
   slidesPerView?: number | 'auto';
   spaceBetween?: number;
   breakpoints?: {
-    [key: number]: { slidesPerView?: number | 'auto'; spaceBetween?: number };
+    [key: number]: {
+      slidesPerView?: number | 'auto';
+      spaceBetween?: number;
+      slideNextClass?: string;
+    };
   };
   children: React.ReactNode;
 }

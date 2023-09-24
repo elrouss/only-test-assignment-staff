@@ -1,5 +1,7 @@
 import { nanoid } from 'nanoid';
 
+import styles from './slider.module.scss';
+
 import { CardFact } from 'components/cards/card-fact/card-fact';
 import { HeadingDefault } from 'components/headings/heading-default/heading-default';
 import { ParagraphDefault } from 'components/paragraphs/paragraph-default';
@@ -34,6 +36,11 @@ export const Slider = ({ facts }: ISliderProps) => {
     <Swiper
       breakpoints={{
         [DEVICE_DIMENSIONS.MOBILE_EXTRA_SMALL]: {
+          slidesPerView: 'auto',
+          spaceBetween: 10,
+          slideNextClass: styles.nextSlide,
+        },
+        [DEVICE_DIMENSIONS.MOBILE_EXTRA_LARGE + 1]: {
           slidesPerView: 'auto',
           spaceBetween: 10,
         },
