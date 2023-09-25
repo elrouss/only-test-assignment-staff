@@ -4,6 +4,20 @@
 @use 'assets/styles/abstracts/variables/z-index' as *;
 @use 'assets/styles/keyframes' as *;
 
+@keyframes tab-appearance {
+  from {
+    padding: 3px;
+    font-size: 0;
+    background-color: $primary-1;
+  }
+
+  to {
+    padding: 16px 22px;
+    font-size: $size-text-large;
+    background-color: $primary-neutral-100;
+  }
+}
+
 %appearance {
   display: inline-flex;
   justify-content: center;
@@ -48,11 +62,12 @@
   &:checked {
     & + .label {
       @extend %active-label;
+      animation: tab-appearance 0.65s ease-out;
 
       & + h3 {
         visibility: visible;
         opacity: 1;
-        animation: make-visible 0.4s ease-out;
+        animation: make-visible 1.3s ease-out;
       }
     }
   }
