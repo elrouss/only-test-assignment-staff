@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/only-test-assignment-staff/static/css/main.d9ed051e.css",
+    "main.css": "/only-test-assignment-staff/static/css/main.179b2b67.css",
     "main.js": "/only-test-assignment-staff/static/js/main.b759943b.js",
     "static/js/787.28cb0dcd.chunk.js": "/only-test-assignment-staff/static/js/787.28cb0dcd.chunk.js",
     "static/media/PTSans-Bold.ttf": "/only-test-assignment-staff/static/media/PTSans-Bold.610bc32a7e32c292ce59.ttf",
@@ -10,12 +10,12 @@
     "static/media/BebasNeue-Regular.ttf": "/only-test-assignment-staff/static/media/BebasNeue-Regular.12e3683f9192436a7be8.ttf",
     "static/media/BebasNeue-Regular.woff": "/only-test-assignment-staff/static/media/BebasNeue-Regular.3400e75bcb5708aef234.woff",
     "index.html": "/only-test-assignment-staff/index.html",
-    "main.d9ed051e.css.map": "/only-test-assignment-staff/static/css/main.d9ed051e.css.map",
+    "main.179b2b67.css.map": "/only-test-assignment-staff/static/css/main.179b2b67.css.map",
     "main.b759943b.js.map": "/only-test-assignment-staff/static/js/main.b759943b.js.map",
     "787.28cb0dcd.chunk.js.map": "/only-test-assignment-staff/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d9ed051e.css",
+    "static/css/main.179b2b67.css",
     "static/js/main.b759943b.js"
   ]
 }
