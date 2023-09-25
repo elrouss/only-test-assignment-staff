@@ -1,9 +1,11 @@
-@keyframes makeVisible {
+@keyframes make-visible {
   from {
     opacity: 0;
+    visibility: hidden;
   }
 
   to {
     opacity: 1;
+    visibility: visible;
   }
 }

@@ -5,6 +5,7 @@
 @use 'assets/styles/abstracts/variables/indents' as *;
 @use 'assets/styles/abstracts/variables/z-index' as *;
 @use 'assets/styles/abstracts/functions' as *;
+@use 'assets/styles/keyframes' as *;
 
 $border: 1px solid
   rgba(
@@ -240,6 +241,10 @@ $border: 1px solid
     }
 
     swiper-slide {
+      opacity: 1;
+      visibility: visible;
+      animation: make-visible 1.35s ease-out;
+
       @media screen and (max-width: $tablet-album-orientation) {
         width: calc-fluid-element(
           179.2,
