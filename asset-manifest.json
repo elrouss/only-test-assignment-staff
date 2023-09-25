@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/only-test-assignment-staff/static/css/main.9bda8d37.css",
-    "main.js": "/only-test-assignment-staff/static/js/main.961374f7.js",
+    "main.css": "/only-test-assignment-staff/static/css/main.d9ed051e.css",
+    "main.js": "/only-test-assignment-staff/static/js/main.b759943b.js",
     "static/js/787.28cb0dcd.chunk.js": "/only-test-assignment-staff/static/js/787.28cb0dcd.chunk.js",
     "static/media/PTSans-Bold.ttf": "/only-test-assignment-staff/static/media/PTSans-Bold.610bc32a7e32c292ce59.ttf",
     "static/media/PTSans-Regular.ttf": "/only-test-assignment-staff/static/media/PTSans-Regular.77e92507394e2309d837.ttf",
@@ -10,12 +10,12 @@
     "static/media/BebasNeue-Regular.ttf": "/only-test-assignment-staff/static/media/BebasNeue-Regular.12e3683f9192436a7be8.ttf",
     "static/media/BebasNeue-Regular.woff": "/only-test-assignment-staff/static/media/BebasNeue-Regular.3400e75bcb5708aef234.woff",
     "index.html": "/only-test-assignment-staff/index.html",
-    "main.9bda8d37.css.map": "/only-test-assignment-staff/static/css/main.9bda8d37.css.map",
-    "main.961374f7.js.map": "/only-test-assignment-staff/static/js/main.961374f7.js.map",
+    "main.d9ed051e.css.map": "/only-test-assignment-staff/static/css/main.d9ed051e.css.map",
+    "main.b759943b.js.map": "/only-test-assignment-staff/static/js/main.b759943b.js.map",
     "787.28cb0dcd.chunk.js.map": "/only-test-assignment-staff/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9bda8d37.css",
-    "static/js/main.961374f7.js"
+    "static/css/main.d9ed051e.css",
+    "static/js/main.b759943b.js"
   ]
 }
